@@ -27,7 +27,7 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 [url=https://github.com/keyz182/YouthSupremacy][img]https://img.shields.io/static/v1?label=YouthSupremacy&message=Fork%20me%20on%20github&color=d2e885&logo=github[/img][/url]
 ```-->
 
-# YouthSupremacy
+# Youth Supremacy - A Rimworld Mod
 
 Precepts, memes, and rituals built around the idea of a colony kicking out pawns at a set age. 
 
