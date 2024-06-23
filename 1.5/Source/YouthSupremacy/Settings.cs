@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 public class Settings : ModSettings
 {
-    //Use Mod.settings.setting to refer to this setting.
-    public bool setting = true;
+    public int maxAge = 18;
 
     public void DoWindowContents(Rect wrect)
     {
         var options = new Listing_Standard();
         options.Begin(wrect);
-        
-        options.CheckboxLabeled("ChildSupremacy_Settings_SettingName".Translate(), ref setting);
+
+        options.Label("Max age for colony pawns:");
+        options.IntAdjuster(ref maxAge, 1, 13);
         options.Gap();
 
         options.End();
@@ -21,6 +21,6 @@ public class Settings : ModSettings
     
     public override void ExposeData()
     {
-        Scribe_Values.Look(ref setting, "setting", true);
+        Scribe_Values.Look(ref maxAge, "maxAge", 18);
     }
 }

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <XenotypeDef Name="YouthSupremacy_Caretaker">
+        <name>MechCaretaker</name>
+        <iconDef>VRE_AndroidXenotypeIcon6</iconDef>
+        <genes>
+            <li>VREA_CombatIncapability</li>
+            <li>VREA_FastRAM</li>
+            <li>VREA_ColdEfficiency</li>
+            <li>VREA_EmotionSimulators</li>
+            <li>VREA_PresenceFirewall</li>
+            <li>VREA_ZeroWaste</li>
+            <li>VREA_SelfRecharge</li>
+            <li>VREA_MechlinkSupport</li>
+            <li>VREA_AptitudeIncapable_Construction</li>
+            <li>VREA_AptitudeIncapable_Mining</li>
+            <li>VREA_AptitudeIncapable_Cooking</li>
+            <li>VREA_AptitudeIncapable_Plants</li>
+            <li>VREA_AptitudeIncapable_Animals</li>
+            <li>VREA_AptitudeIncapable_Artistic</li>
+            <li>VREA_AptitudeIncapable_Medicine</li>
+            <li>VREA_AptitudeIncapable_Intellectual</li>
+            <li>VREA_Dwarfism</li>
+            <li>VREA_AG_BandwidthIncreaseMajor</li>
+            <li>VREA_AG_IncreasedCommandRange</li>
+            <li>VREA_AG_ExpertMechRepair</li>
+            <li>VREA_AlphaGenes_Animal_SummonTesseron</li>
+            <li>VREA_MemoryProcessing</li>
+            <li>VREA_Power</li>
+            <li>VREA_JoyDisabled</li>
+            <li>VREA_BeautyDisabled</li>
+            <li>VREA_ComfortDisabled</li>
+            <li>VREA_OutdoorsDisabled</li>
+            <li>VREA_DrugDesireDisabled</li>
+            <li>VREA_RoomSizeDisabled</li>
+            <li>VREA_PainDisabled</li>
+            <li>VREA_SyntheticBody</li>
+            <li>VREA_NeutroCirculation</li>
+            <li>VREA_SyntheticImmunity</li>
+            <li>VREA_ComponentFreezing</li>
+            <li>VREA_ComponentOverheating</li>
+            <li>VREA_ColdTolerant</li>
+            <li>VREA_HeatTolerant</li>
+            <li>VREA_NoSkillGain</li>
+            <li>VREA_Uninspired</li>
+            <li>VREA_PsychicallyDeaf</li>
+            <li>VREA_MentalBreaksDisabled</li>
+            <li>VREA_PsychologyDisabled</li>
+        </genes>
+    </XenotypeDef>
+</Defs>

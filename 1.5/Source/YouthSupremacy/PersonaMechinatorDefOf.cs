@@ -1,10 +1,10 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 [DefOf]
-public static class ChildSupremacyDefOf
+public static class YouthSupremacyDefOf
 {
     // Remember to annotate any Defs that require a DLC as needed e.g.
     // [MayRequireBiotech]
@@ -12,9 +12,10 @@ public static class ChildSupremacyDefOf
 
     public static IncidentDef OrphanWandersIn;
     public static PawnKindDef Orphan;
-    public static MemeDef ChildSupremacy;
+    public static MemeDef YouthSupremacy;
     public static JobDef Expel;
     public static TaleDef ExpelledAdult;
+    public static XenotypeDef MechCaretaker;
     
-    static ChildSupremacyDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(ChildSupremacyDefOf));
+    static YouthSupremacyDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(YouthSupremacyDefOf));
 }

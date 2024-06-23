@@ -8,12 +8,12 @@
         <targetTags>
             <li>Map_PlayerHome</li>
         </targetTags>
-        <workerClass>ChildSupremacy.IncidentWorker_OrphanWandersIn</workerClass>
+        <workerClass>YouthSupremacy.IncidentWorker_OrphanWandersIn</workerClass>
         <baseChance>5.0</baseChance>
         <populationEffect>IncreaseMedium</populationEffect>
         <letterLabel>{0} wanders in</letterLabel>
         <letterText>
-            A {1} living among wild animals has wandered into the area. {PAWN_pronoun}'s called {0}.\n\nYou can
+            An orphaned {1} living among wild animals has wandered into the area. {PAWN_pronoun}'s called {0}.\n\nYou can
             attempt to tame {PAWN_objective}.
         </letterText>
         <letterDef>NeutralEvent</letterDef>
@@ -52,57 +52,57 @@
     </PawnKindDef>
 
     <IssueDef>
-        <defName>ChildSupremacy</defName>
-        <label>child supremacy</label>
+        <defName>YouthSupremacy</defName>
+        <label>youth supremacy</label>
         <iconPath>UI/Issues/ChildLabor</iconPath>
     </IssueDef>
 
     <PreceptDef>
-        <defName>Child_Supremacy</defName>
-        <issue>ChildSupremacy</issue>
-        <label>Child Supremacy</label>
-        <description>The children stand pure above the adults.</description>
+        <defName>YouthSupremacy</defName>
+        <issue>YouthSupremacy</issue>
+        <label>Youth Supremacy</label>
+        <description>The youth stand pure above the adults.</description>
         <impact>High</impact>
         <displayOrderInIssue>55</displayOrderInIssue>
         <defaultSelectionWeight>0</defaultSelectionWeight>
         <requiredMemes>
-            <li>ChildSupremacy</li>
+            <li>YouthSupremacy</li>
         </requiredMemes>
         <comps>
             <li Class="PreceptComp_SituationalThought">
-                <thought>ChildSupremacy_AdultsInFaction</thought>
+                <thought>YouthSupremacy_AdultsInFaction</thought>
             </li>
             <li Class="PreceptComp_SituationalThought">
-                <thought>ChildSupremacy_NotChild</thought>
+                <thought>YouthSupremacy_NotChild</thought>
             </li>
         </comps>
     </PreceptDef>
 
     <MemeGroupDef>
-        <defName>AgeSupremacy</defName>
+        <defName>YouthSupremacy</defName>
         <drawOffset>(0.65, 0.23)</drawOffset>
         <maxRows>1</maxRows>
         <renderOrder>2023</renderOrder>
     </MemeGroupDef>
 
-    <MemeDef Name="AgeSupremacyBase" Abstract="True">
-        <groupDef>AgeSupremacy</groupDef>
+    <MemeDef Name="YouthSupremacyBase" Abstract="True">
+        <groupDef>YouthSupremacy</groupDef>
         <exclusionTags>
-            <li>AgeSupremacy</li>
+            <li>YouthSupremacy</li>
         </exclusionTags>
     </MemeDef>
 
-    <MemeDef ParentName="AgeSupremacyBase">
-        <defName>ChildSupremacy</defName>
-        <label>child supremacy</label>
-        <description>Children are the future and should rule.</description>
+    <MemeDef ParentName="YouthSupremacyBase">
+        <defName>YouthSupremacy</defName>
+        <label>youth supremacy</label>
+        <description>Youth are the future and should rule.</description>
         <iconPath>UI/Memes/SupremacyFemale</iconPath>
         <impact>3</impact>
     </MemeDef>
 
     <ThoughtDef>
-        <defName>ChildSupremacy_AdultsInFaction</defName>
-        <workerClass>ChildSupremacy.ThoughtWorker_Precept_NotChild</workerClass>
+        <defName>YouthSupremacy_AdultsInFaction</defName>
+        <workerClass>YouthSupremacy.ThoughtWorker_Precept_NotChild</workerClass>
         <thoughtClass>Thought_Situational</thoughtClass>
         <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
         <stages>
@@ -115,8 +115,8 @@
     </ThoughtDef>
 
     <ThoughtDef>
-        <defName>ChildSupremacy_NotChild</defName>
-        <workerClass>ChildSupremacy.ThoughtWorker_Precept_NotChild</workerClass>
+        <defName>YouthSupremacy_NotChild</defName>
+        <workerClass>YouthSupremacy.ThoughtWorker_Precept_NotChild</workerClass>
         <thoughtClass>Thought_Situational</thoughtClass>
         <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
         <stages>
@@ -132,7 +132,7 @@
         <defName>Expulsion</defName>
         <label>expulsion</label>
         <tipLabelOverride>Public expulsion</tipLabelOverride>
-        <description>An child will expel the adult from the colony.</description>
+        <description>An youth will expel the adult from the colony.</description>
         <iconPath>UI/Icons/Rituals/PublicExecution</iconPath>
         <issue>Ritual</issue>
         <preceptClass>Precept_Ritual</preceptClass>
@@ -147,7 +147,7 @@
     <RitualOutcomeEffectDef>
         <defName>Expulsion</defName>
         <description>Expel an adult from the colony. Depending on ritual quality, participants will get between {MINMOOD} and {MAXMOOD} mood for {MOODDAYS} days.</description>
-        <workerClass>ChildSupremacy.RitualOutcomeEffectWorker_Expulsion</workerClass>
+        <workerClass>YouthSupremacy.RitualOutcomeEffectWorker_Expulsion</workerClass>
         <comps>
             <li Class="RitualOutcomeComp_ParticipantCount">
                 <label>participant count</label>
@@ -211,7 +211,7 @@
     <RitualBehaviorDef>
         <defName>Expulsion</defName>
         <durationTicks>660</durationTicks>
-        <workerClass>ChildSupremacy.RitualBehaviorWorker_Expulsion</workerClass>
+        <workerClass>YouthSupremacy.RitualBehaviorWorker_Expulsion</workerClass>
         <useVisualEffectsFromRoleIdIdeo>connector</useVisualEffectsFromRoleIdIdeo>
         <roles>
             <li Class="RitualRoleWarden">
@@ -237,7 +237,7 @@
             </li>
         </roles>
         <stages>
-            <li Class="ChildSupremacy.RitualStage_InteractWithAdult">
+            <li Class="YouthSupremacy.RitualStage_InteractWithAdult">
                 <defaultDuty>Spectate</defaultDuty>
                 <endTriggers>
                     <li Class="StageEndTrigger_PawnDeliveredOrNotValid" />
@@ -305,10 +305,10 @@
                     </li>
                 </roleBehaviors>
             </li>
-            <li Class="ChildSupremacy.RitualStage_InteractWithAdult">
+            <li Class="YouthSupremacy.RitualStage_InteractWithAdult">
                 <defaultDuty>Spectate</defaultDuty>
                 <endTriggers>
-                    <li Class="ChildSupremacy.StageEndTrigger_PawnExpelled">
+                    <li Class="YouthSupremacy.StageEndTrigger_PawnExpelled">
                         <roleId>adult</roleId>
                     </li>
                 </endTriggers>
@@ -363,14 +363,14 @@
         <socialModeMax>Off</socialModeMax>
         <thinkNode Class="ThinkNode_Priority">
             <subNodes>
-                <li Class="ChildSupremacy.JobGiver_Expel" />
+                <li Class="YouthSupremacy.JobGiver_Expel" />
             </subNodes>
         </thinkNode>
     </DutyDef>
 
     <JobDef>
         <defName>Expel</defName>
-        <driverClass>ChildSupremacy.JobDriver_Expel</driverClass>
+        <driverClass>YouthSupremacy.JobDriver_Expel</driverClass>
         <reportString>Expelling TargetA.</reportString>
         <casualInterruptible>false</casualInterruptible>
     </JobDef>

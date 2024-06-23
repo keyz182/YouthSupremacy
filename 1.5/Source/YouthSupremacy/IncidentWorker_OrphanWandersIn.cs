@@ -2,7 +2,7 @@
 using System;
 using Verse;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 public class IncidentWorker_OrphanWandersIn : IncidentWorker
 {
@@ -23,13 +23,13 @@ public class IncidentWorker_OrphanWandersIn : IncidentWorker
       if (!this.TryFindEntryCell(target, out cell) || !this.TryFindFormerFaction(out formerFaction))
         return false;
       
-      Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(ChildSupremacyDefOf.Orphan, formerFaction, developmentalStages: DevelopmentalStage.Child));
+      Pawn pawn = PawnGenerator.GeneratePawn(new PawnGenerationRequest(YouthSupremacyDefOf.Orphan, formerFaction, developmentalStages: DevelopmentalStage.Child));
       pawn.SetFaction((Faction) null, (Pawn) null);
       GenSpawn.Spawn((Thing) pawn, cell, target);
       TaggedString taggedString1;
       string kindLabel;
       
-        taggedString1 = "ChildSupremacy_OrphanedChild".Translate();
+        taggedString1 = "YouthSupremacy_OrphanedChild".Translate();
         kindLabel = taggedString1.ToString();
         
       string str = kindLabel;

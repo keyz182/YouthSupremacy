@@ -1,12 +1,12 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 public static class ExtensionMethods
 {
     public static bool SupremeChild(this Ideo ideo)
     {
-        return ideo.HasMeme(ChildSupremacyDefOf.ChildSupremacy);
+        return ideo.HasMeme(YouthSupremacyDefOf.YouthSupremacy);
     }
 }

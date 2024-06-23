@@ -2,22 +2,22 @@
 using UnityEngine;
 using HarmonyLib;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
-public class ChildSupremacyMod : Mod
+public class YouthSupremacyMod : Mod
 {
     public static Settings settings;
 
-    public ChildSupremacyMod(ModContentPack content) : base(content)
+    public YouthSupremacyMod(ModContentPack content) : base(content)
     {
-        Log.Message("Hello world from ChildSupremacy");
+        Log.Message("Hello world from YouthSupremacy");
 
         // initialize settings
         settings = GetSettings<Settings>();
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
-        Harmony harmony = new Harmony("keyz182.rimworld.ChildSupremacy.main");	
+        Harmony harmony = new Harmony("keyz182.rimworld.YouthSupremacy.main");	
         harmony.PatchAll();
     }
 
@@ -29,6 +29,6 @@ public class ChildSupremacyMod : Mod
 
     public override string SettingsCategory()
     {
-        return "ChildSupremacy_SettingsCategory".Translate();
+        return "YouthSupremacy_SettingsCategory".Translate();
     }
 }

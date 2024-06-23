@@ -4,7 +4,7 @@ using RimWorld;
 using Verse;
 using Verse.AI.Group;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 public class StageEndTrigger_PawnExpelled : StageEndTrigger
 {

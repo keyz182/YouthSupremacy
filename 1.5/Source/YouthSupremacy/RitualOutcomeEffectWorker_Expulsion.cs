@@ -2,7 +2,7 @@
 using RimWorld;
 using Verse;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 public class RitualOutcomeEffectWorker_Expulsion : RitualOutcomeEffectWorker_FromQuality
 {

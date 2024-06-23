@@ -5,7 +5,7 @@ using Verse;
 using Verse.AI;
 using Verse.AI.Group;
 
-namespace ChildSupremacy;
+namespace YouthSupremacy;
 
 public class JobDriver_Expel : JobDriver
 {
@@ -30,7 +30,7 @@ public class JobDriver_Expel : JobDriver
             expel.initAction = (Action) (() =>
             {
                 this.Victim.SetFactionDirect(Find.FactionManager.RandomNonHostileFaction());
-                TaleRecorder.RecordTale(ChildSupremacyDefOf.ExpelledAdult, (object) this.pawn, (object) victim);
+                TaleRecorder.RecordTale(YouthSupremacyDefOf.ExpelledAdult, (object) this.pawn, (object) victim);
             });
             expel.defaultCompleteMode = ToilCompleteMode.Instant;
             yield return Toils_Reserve.Release(TargetIndex.A);

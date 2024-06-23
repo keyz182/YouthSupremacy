@@ -4,14 +4,14 @@
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>ChildSupremacy</RootNamespace>
+    <RootNamespace>YouthSupremacy</RootNamespace>
     <OutputPath>../../Assemblies/</OutputPath>
     <ZipFilePath>../../../$(AssemblyName).zip</ZipFilePath>
     <ReleasePath>../../../Release</ReleasePath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
-    <PackageId>ChildSupremacy</PackageId>
+    <PackageId>YouthSupremacy</PackageId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -72,20 +72,13 @@
     
     <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
     
-    <ReleaseFiles Update="..\..\Defs\ChildSupremacy.xml">
-      <Link>ChildSupremacy\1.5\Defs\ChildSupremacy.xml</Link>
+    <ReleaseFiles Update="..\..\Defs\YouthSupremacy.xml">
+      <Link>YouthSupremacy\1.5\Defs\YouthSupremacy.xml</Link>
     </ReleaseFiles>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="ThoughtWorker_Precept_NotChild.cs">
-      <Link>ChildSupremacy\ThoughtWorker_Precept_NotChild.cs</Link>
-    </Compile>
-    <Compile Update="ThoughtWorker_Precept_AdultsInFaction.cs">
-      <Link>ChildSupremacy\ThoughtWorker_Precept_NotChild.cs</Link>
-    </Compile>
-    <Compile Update="ExtensionMethods.cs">
-      <Link>ChildSupremacy\ExtensionMethods.cs</Link>
-    </Compile>
+    
+    <ReleaseFiles Update="..\..\Defs\YouthSupremacy_Xeno.xml">
+      <Link>ChildSupremacy\1.5\Defs\YouthSupremacy_Xeno.xml</Link>
+    </ReleaseFiles>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
     <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />
