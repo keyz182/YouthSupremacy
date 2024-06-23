@@ -77,7 +77,7 @@
     </ReleaseFiles>
     
     <ReleaseFiles Update="..\..\Defs\YouthSupremacy_Xeno.xml">
-      <Link>ChildSupremacy\1.5\Defs\YouthSupremacy_Xeno.xml</Link>
+      <Link>YouthSupremacy\1.5\Defs\YouthSupremacy_Xeno.xml</Link>
     </ReleaseFiles>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
