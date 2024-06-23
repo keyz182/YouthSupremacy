@@ -4,14 +4,14 @@
     <TargetFramework>net48</TargetFramework>
     <OutputType>Library</OutputType>
     <LangVersion>latest</LangVersion>
-    <RootNamespace>PersonaMechinator</RootNamespace>
-    <AssemblyName>PersonaMechinator</AssemblyName>
+    <RootNamespace>ChildSupremacy</RootNamespace>
     <OutputPath>../../Assemblies/</OutputPath>
     <ZipFilePath>../../../$(AssemblyName).zip</ZipFilePath>
     <ReleasePath>../../../Release</ReleasePath>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <SteamModsPath>$(RIMWORLD_STEAM_MODS_PATH)</SteamModsPath>
+    <PackageId>ChildSupremacy</PackageId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -37,6 +37,13 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
+      <ItemGroup>
+        <Reference Include="VREAndroids">
+            <HintPath Condition="Exists('../../../../../VanillaRacesExpanded-Android')">../../../../../VanillaRacesExpanded-Android/1.5/Assemblies/VREAndroids.dll</HintPath>
+            <HintPath Condition="Exists('../../../../../../../workshop/content/294100/2975771801/')">../../../../../../../workshop/content/294100/2975771801/1.5/Assemblies/VREAndroids.dll</HintPath>
+            <Private>False</Private>
+        </Reference>
+    </ItemGroup>
   <ItemGroup>
     <Content Condition="Exists('../../../../../Data')" Include="../../../../../Data/**/*">
       <Link>Attached/Rimworld/%(RecursiveDir)/%(FileName)%(Extension)</Link>
@@ -64,6 +71,21 @@
     <CompatibilityFiles Include="../../../Compatibility/**" />
     
     <ExtraFiles Include="../../../LoadFolders.xml;../../../LICENSE;../../../README.md" />
+    
+    <ReleaseFiles Update="..\..\Defs\ChildSupremacy.xml">
+      <Link>ChildSupremacy\1.5\Defs\ChildSupremacy.xml</Link>
+    </ReleaseFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ThoughtWorker_Precept_NotChild.cs">
+      <Link>ChildSupremacy\ThoughtWorker_Precept_NotChild.cs</Link>
+    </Compile>
+    <Compile Update="ThoughtWorker_Precept_AdultsInFaction.cs">
+      <Link>ChildSupremacy\ThoughtWorker_Precept_NotChild.cs</Link>
+    </Compile>
+    <Compile Update="ExtensionMethods.cs">
+      <Link>ChildSupremacy\ExtensionMethods.cs</Link>
+    </Compile>
   </ItemGroup>
   <Target Name="PostBuild" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
     <RemoveDir Condition="Exists('../../../Release')" Directories="../../../Release" />

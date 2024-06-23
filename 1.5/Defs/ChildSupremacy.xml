@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Defs>
+    <IncidentDef>
+        <defName>OrphanWandersIn</defName>
+        <label>orphan wanders in</label>
+        <category>Misc</category>
+        <targetTags>
+            <li>Map_PlayerHome</li>
+        </targetTags>
+        <workerClass>ChildSupremacy.IncidentWorker_OrphanWandersIn</workerClass>
+        <baseChance>5.0</baseChance>
+        <populationEffect>IncreaseMedium</populationEffect>
+        <letterLabel>{0} wanders in</letterLabel>
+        <letterText>
+            A {1} living among wild animals has wandered into the area. {PAWN_pronoun}'s called {0}.\n\nYou can
+            attempt to tame {PAWN_objective}.
+        </letterText>
+        <letterDef>NeutralEvent</letterDef>
+    </IncidentDef>
+
+    <PawnKindDef>
+        <defName>Orphan</defName>
+        <label>orphan</label>
+        <labelPlural>orphans</labelPlural>
+        <labelFemale>orphan</labelFemale>
+        <labelFemalePlural>orphans</labelFemalePlural>
+        <combatPower>30</combatPower>
+        <race>Human</race>
+        <acceptArrestChanceFactor>0.5</acceptArrestChanceFactor>
+        <backstoryFilters>
+            <li>
+                <categories>
+                    <li>Offworld</li>
+                    <li>Pirate</li>
+                    <li>Tribal</li>
+                </categories>
+            </li>
+        </backstoryFilters>
+        <backstoryCryptosleepCommonality>0.1</backstoryCryptosleepCommonality>
+        <itemQuality>Poor</itemQuality>
+        <chemicalAddictionChance>0.03</chemicalAddictionChance>
+        <apparelIgnoreSeasons>true</apparelIgnoreSeasons>
+        <apparelIgnorePollution MayRequire="Ludeon.RimWorld.Biotech">true</apparelIgnorePollution>
+        <techHediffsChance>0.03</techHediffsChance>
+        <techHediffsMoney>50~50</techHediffsMoney>
+        <techHediffsTags>
+            <li>Poor</li>
+        </techHediffsTags>
+        <initialWillRange>2~4</initialWillRange>
+        <initialResistanceRange>28~44</initialResistanceRange>
+    </PawnKindDef>
+
+    <IssueDef>
+        <defName>ChildSupremacy</defName>
+        <label>child supremacy</label>
+        <iconPath>UI/Issues/ChildLabor</iconPath>
+    </IssueDef>
+
+    <PreceptDef>
+        <defName>Child_Supremacy</defName>
+        <issue>ChildSupremacy</issue>
+        <label>Child Supremacy</label>
+        <description>The children stand pure above the adults.</description>
+        <impact>High</impact>
+        <displayOrderInIssue>55</displayOrderInIssue>
+        <defaultSelectionWeight>0</defaultSelectionWeight>
+        <requiredMemes>
+            <li>ChildSupremacy</li>
+        </requiredMemes>
+        <comps>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>ChildSupremacy_AdultsInFaction</thought>
+            </li>
+            <li Class="PreceptComp_SituationalThought">
+                <thought>ChildSupremacy_NotChild</thought>
+            </li>
+        </comps>
+    </PreceptDef>
+
+    <MemeGroupDef>
+        <defName>AgeSupremacy</defName>
+        <drawOffset>(0.65, 0.23)</drawOffset>
+        <maxRows>1</maxRows>
+        <renderOrder>2023</renderOrder>
+    </MemeGroupDef>
+
+    <MemeDef Name="AgeSupremacyBase" Abstract="True">
+        <groupDef>AgeSupremacy</groupDef>
+        <exclusionTags>
+            <li>AgeSupremacy</li>
+        </exclusionTags>
+    </MemeDef>
+
+    <MemeDef ParentName="AgeSupremacyBase">
+        <defName>ChildSupremacy</defName>
+        <label>child supremacy</label>
+        <description>Children are the future and should rule.</description>
+        <iconPath>UI/Memes/SupremacyFemale</iconPath>
+        <impact>3</impact>
+    </MemeDef>
+
+    <ThoughtDef>
+        <defName>ChildSupremacy_AdultsInFaction</defName>
+        <workerClass>ChildSupremacy.ThoughtWorker_Precept_NotChild</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>adults in colony</label>
+                <description>there are adults in the colony</description>
+                <baseMoodEffect>-8</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <ThoughtDef>
+        <defName>ChildSupremacy_NotChild</defName>
+        <workerClass>ChildSupremacy.ThoughtWorker_Precept_NotChild</workerClass>
+        <thoughtClass>Thought_Situational</thoughtClass>
+        <doNotApplyToQuestLodgers>true</doNotApplyToQuestLodgers>
+        <stages>
+            <li>
+                <label>i'm an adult</label>
+                <description>i'm an adult</description>
+                <baseMoodEffect>-12</baseMoodEffect>
+            </li>
+        </stages>
+    </ThoughtDef>
+
+    <PreceptDef>
+        <defName>Expulsion</defName>
+        <label>expulsion</label>
+        <tipLabelOverride>Public expulsion</tipLabelOverride>
+        <description>An child will expel the adult from the colony.</description>
+        <iconPath>UI/Icons/Rituals/PublicExecution</iconPath>
+        <issue>Ritual</issue>
+        <preceptClass>Precept_Ritual</preceptClass>
+        <ritualPatternBase>Expulsion</ritualPatternBase>
+        <classic>true</classic>
+        <visible>false</visible>
+        <countsTowardsPreceptLimit>false</countsTowardsPreceptLimit>
+        <selectionWeight>1.0</selectionWeight>
+        <capitalizeAsTitle>false</capitalizeAsTitle>
+    </PreceptDef>
+
+    <RitualOutcomeEffectDef>
+        <defName>Expulsion</defName>
+        <description>Expel an adult from the colony. Depending on ritual quality, participants will get between {MINMOOD} and {MAXMOOD} mood for {MOODDAYS} days.</description>
+        <workerClass>ChildSupremacy.RitualOutcomeEffectWorker_Expulsion</workerClass>
+        <comps>
+            <li Class="RitualOutcomeComp_ParticipantCount">
+                <label>participant count</label>
+                <curve>
+                    <points>
+                        <li>(1, 0.18)</li>
+                        <li>(4, 0.4)</li>
+                        <li>(7, 0.65)</li>
+                        <li>(10, 0.8)</li>
+                    </points>
+                </curve>
+            </li>
+            <li Class="RitualOutcomeComp_RitualTargetDefs">
+                <defs>
+                    <li>Ideogram</li>
+                </defs>
+                <allowAltars>true</allowAltars>
+                <autoApplyInClassicMode>true</autoApplyInClassicMode>
+                <label>started at altar or ideogram</label>
+                <qualityOffset>0.2</qualityOffset>
+                <expectedThingLabelTip>an altar or an ideogram</expectedThingLabelTip>
+            </li>
+        </comps>
+        <outcomeChances>
+            <li>
+                <label>Awkward</label>
+                <chance>0.15</chance>
+                <memory>AwkwardExecution</memory>
+                <positivityIndex>-1</positivityIndex>
+                <description>The {0} was awkward.</description>
+            </li>
+            <li>
+                <label>Satisfying</label>
+                <chance>0.65</chance>
+                <memory>SatisfyingExecution</memory>
+                <description>The {0} was satisfying.</description>
+                <positivityIndex>1</positivityIndex>
+            </li>
+            <li>
+                <label>Spectacular</label>
+                <chance>0.2</chance>
+                <memory>SpectacularExecution</memory>
+                <description>The {0} was spectacular!</description>
+                <positivityIndex>2</positivityIndex>
+            </li>
+        </outcomeChances>
+    </RitualOutcomeEffectDef>
+
+    <RitualPatternDef>
+        <defName>Expulsion</defName>
+        <alwaysStartAnytime>true</alwaysStartAnytime>
+        <ritualObligationTargetFilter>RitualSpotIdeogramOrAltar</ritualObligationTargetFilter>
+        <ritualBehavior>Expulsion</ritualBehavior>
+        <ritualOnlyForIdeoMembers>false</ritualOnlyForIdeoMembers>
+        <ritualOutcomeEffect>Expulsion</ritualOutcomeEffect>
+        <tags>
+            <li>Expulsion</li>
+        </tags>
+    </RitualPatternDef>
+
+    <RitualBehaviorDef>
+        <defName>Expulsion</defName>
+        <durationTicks>660</durationTicks>
+        <workerClass>ChildSupremacy.RitualBehaviorWorker_Expulsion</workerClass>
+        <useVisualEffectsFromRoleIdIdeo>connector</useVisualEffectsFromRoleIdIdeo>
+        <roles>
+            <li Class="RitualRoleWarden">
+                <label>expeller</label>
+                <missingDesc>a child</missingDesc>
+                <id>expeller</id>
+                <maxCount>1</maxCount>
+                <required>True</required>
+                <countsAsParticipant>False</countsAsParticipant>
+                <allowChild>true</allowChild>
+                <mustBeAbleToReachTarget>True</mustBeAbleToReachTarget>
+            </li>
+            <li Class="RitualRoleColonist">
+                <label>adult</label>
+                <missingDesc>an adult</missingDesc>
+                <id>adult</id>
+                <maxCount>1</maxCount>
+                <required>True</required>
+                <allowChild>false</allowChild>
+                <allowBaby>false</allowBaby>
+                <countsAsParticipant>False</countsAsParticipant>
+                <ignoreBleeding>true</ignoreBleeding>
+            </li>
+        </roles>
+        <stages>
+            <li Class="ChildSupremacy.RitualStage_InteractWithAdult">
+                <defaultDuty>Spectate</defaultDuty>
+                <endTriggers>
+                    <li Class="StageEndTrigger_PawnDeliveredOrNotValid" />
+                </endTriggers>
+                <failTriggers>
+                    <li Class="StageFailTrigger_TargetPawnUnreachable">
+                        <takerId>expeller</takerId>
+                        <takeeId>adult</takeeId>
+                        <desc>Adult is not reachable.</desc>
+                    </li>
+                    <li Class="StageFailTrigger_PawnAsleep">
+                        <desc>escort asleep</desc>
+                        <pawnId>expeller</pawnId>
+                    </li>
+                </failTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>expeller</roleId>
+                        <dutyDef>DeliverPawnToAltar</dutyDef>
+                    </li>
+                    <li>
+                        <roleId>adult</roleId>
+                        <dutyDef>Idle</dutyDef>
+                    </li>
+                </roleBehaviors>
+            </li>
+
+            <li>
+                <defaultDuty>Spectate</defaultDuty>
+                <endTriggers>
+                    <li Class="StageEndTrigger_DurationPercentage">
+                        <percentage>0.375</percentage>
+                    </li>
+                </endTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>expeller</roleId>
+                        <dutyDef>SpeakOnCellFacingSpectators</dutyDef>
+                        <speakerInteraction>Speech_Execution</speakerInteraction>
+                        <customPositions>
+                            <li Class="RitualPosition_OnInteractionCell" />
+                        </customPositions>
+                    </li>
+                </roleBehaviors>
+            </li>
+            <li>
+                <defaultDuty>Spectate</defaultDuty>
+                <endTriggers>
+                    <li Class="StageEndTrigger_DurationPercentage">
+                        <percentage>0.625</percentage>
+                    </li>
+                </endTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>expeller</roleId>
+                        <dutyDef>SpeakOnCellFacingSpectators</dutyDef>
+                        <speakerInteraction>Speech_Expulsion</speakerInteraction>
+                        <customPositions>
+                            <li Class="RitualPosition_OnInteractionCell" />
+                        </customPositions>
+                    </li>
+                    <li>
+                        <roleId>adult</roleId>
+                        <dutyDef>LayDownAwake</dutyDef>
+                    </li>
+                </roleBehaviors>
+            </li>
+            <li Class="ChildSupremacy.RitualStage_InteractWithAdult">
+                <defaultDuty>Spectate</defaultDuty>
+                <endTriggers>
+                    <li Class="ChildSupremacy.StageEndTrigger_PawnExpelled">
+                        <roleId>adult</roleId>
+                    </li>
+                </endTriggers>
+                <roleBehaviors>
+                    <li>
+                        <roleId>expeller</roleId>
+                        <dutyDef>Expel</dutyDef>
+                        <customPositions>
+                            <li Class="RitualPosition_OnInteractionCell" />
+                        </customPositions>
+                    </li>
+                    <li>
+                        <roleId>adult</roleId>
+                        <dutyDef>LayDownAwake</dutyDef>
+                    </li>
+                </roleBehaviors>
+                <visualEffectDef>SacrificePrisoner</visualEffectDef>
+            </li>
+        </stages>
+    </RitualBehaviorDef>
+
+    <InteractionDef>
+        <defName>Speech_Expulsion</defName>
+        <label>expulsion speech</label>
+        <workerClass>InteractionWorker</workerClass>
+        <ignoreTimeSinceLastInteraction>True</ignoreTimeSinceLastInteraction>
+        <symbol>Things/Mote/SpeechSymbols/Speech</symbol>
+        <logRulesInitiator>
+            <include>
+                <li>SpeechUtility</li>
+            </include>
+            <rulesStrings>
+                <li>r_logentry->[INITIATOR_nameDef] [spokeof] [speechtopic].</li>
+
+                <li>speechtopic->life and death</li>
+                <li>speechtopic->the necessity of justice</li>
+                <li>speechtopic->the methods of execution</li>
+                <li>speechtopic->death and cruelty</li>
+                <li>speechtopic->merciful killing</li>
+                <li>speechtopic->the mercy of a correct killing</li>
+                <li>speechtopic->the symbolism of death</li>
+                <li>speechtopic->capital punishment and its history</li>
+                <li>speechtopic->the reasons for the execution</li>
+
+            </rulesStrings>
+        </logRulesInitiator>
+    </InteractionDef>
+
+    <DutyDef>
+        <defName>Expel</defName>
+        <hook>HighPriority</hook>
+        <socialModeMax>Off</socialModeMax>
+        <thinkNode Class="ThinkNode_Priority">
+            <subNodes>
+                <li Class="ChildSupremacy.JobGiver_Expel" />
+            </subNodes>
+        </thinkNode>
+    </DutyDef>
+
+    <JobDef>
+        <defName>Expel</defName>
+        <driverClass>ChildSupremacy.JobDriver_Expel</driverClass>
+        <reportString>Expelling TargetA.</reportString>
+        <casualInterruptible>false</casualInterruptible>
+    </JobDef>
+
+    <TaleDef>
+        <defName>ExpelledAdult</defName>
+        <label>adult expelled</label>
+        <taleClass>Tale_DoublePawn</taleClass>
+        <type>Expirable</type>
+        <firstPawnSymbol>EXPELLER</firstPawnSymbol>
+        <secondPawnSymbol>ADULT</secondPawnSymbol>
+        <baseInterest>4</baseInterest>
+        <maxPerPawn>1</maxPerPawn>
+        <expireDays>20</expireDays>
+    </TaleDef>
+</Defs>

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System;
 
-namespace PersonaMechinator;
+namespace ChildSupremacy;
 
 static class ModLog
 {
@@ -13,17 +13,17 @@ static class ModLog
 
     public static void Log(string msg)
     {
-        Verse.Log.Message($"<color=#1c6beb>[PersonaMechinator]</color> {msg ?? "<null>"}");
+        Verse.Log.Message($"<color=#1c6beb>[ChildSupremacy]</color> {msg ?? "<null>"}");
     }
 
     public static void Warn(string msg)
     {
-        Verse.Log.Warning($"<color=#1c6beb>[PersonaMechinator]</color> {msg ?? "<null>"}");
+        Verse.Log.Warning($"<color=#1c6beb>[ChildSupremacy]</color> {msg ?? "<null>"}");
     }
 
     public static void Error(string msg, Exception e = null)
     {
-        Verse.Log.Error($"<color=#1c6beb>[PersonaMechinator]</color> {msg ?? "<null>"}");
+        Verse.Log.Error($"<color=#1c6beb>[ChildSupremacy]</color> {msg ?? "<null>"}");
         if (e != null)
             Verse.Log.Error(e.ToString());
     }

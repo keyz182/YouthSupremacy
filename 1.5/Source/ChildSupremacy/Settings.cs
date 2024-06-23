@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace PersonaMechinator;
+namespace ChildSupremacy;
 
 public class Settings : ModSettings
 {
@@ -13,7 +13,7 @@ public class Settings : ModSettings
         var options = new Listing_Standard();
         options.Begin(wrect);
         
-        options.CheckboxLabeled("PersonaMechinator_Settings_SettingName".Translate(), ref setting);
+        options.CheckboxLabeled("ChildSupremacy_Settings_SettingName".Translate(), ref setting);
         options.Gap();
 
         options.End();

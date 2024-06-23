@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Patch>
-    <!-- Consider https://steamcommunity.com/sharedfiles/filedetails/?id=2810681278 to help you out -->
+    <Operation Class="PatchOperationSequence">
+        <operations>
 
-    <!-- <Operation Class="PatchOperationConditional">
-        <xpath>Defs/HediffDef[defName="SomeDef"]/scenarioCanAdd</xpath>
-        <match Class="PatchOperationReplace">
-            <xpath>Defs/HediffDef[defName="SomeDef"]/scenarioCanAdd</xpath>
-            <value>
-                <scenarioCanAdd>true</scenarioCanAdd>
-            </value>
-        </match>
-        <nomatch Class="PatchOperationAdd">
-            <xpath>Defs/HediffDef[defName="SomeDef"]</xpath>
-            <value>
-                <scenarioCanAdd>true</scenarioCanAdd>
-            </value>
-        </nomatch>
-    </Operation> -->
+            <li Class="PatchOperationAddModExtension">
+                <xpath>/Defs/HediffDef[@Name="DiseaseBase"]</xpath>
+                <value>
+                    <li Class="VREAndroids.AndroidSettingsExtension">
+                        <androidCanCatchIt>False</androidCanCatchIt>
+                    </li>
+                </value>
+            </li>
+			
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThinkTreeDef[defName="MainColonistBehaviorCore"]/thinkRoot/subNodes/li/subNodes</xpath>
+                <value>
+                    <li Class="VREAndroids.JobGiver_FreeMemorySpace"/>
+                    <li Class="VREAndroids.JobGiver_MakeLovin"/>
+                </value>
+            </li>
+
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName="TableMachining"]/recipes</xpath>
+                <value>
+                    <li>VREA_ButcherCorpseAndroid</li>
+                </value>
+            </li>
+			
+            <li Class="PatchOperationAdd"> 
+                <xpath>/Defs/StatDef[defName="WorkSpeedGlobal"]/parts</xpath>
+                <value>
+                    <li Class="VREAndroids.StatPart_AndroidColdEfficiency"></li>
+                </value>
+            </li>
+        </operations>
+    </Operation>
 </Patch>

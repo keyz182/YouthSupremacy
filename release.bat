@@ -1,5 +1,5 @@
 @ECHO OFF
-ECHO Building PersonaMechinator 1.5 - Started
+ECHO Building ChildSupremacy 1.5 - Started
 
 dotnet --list-sdks | findstr /R /C:"8\..*" 1>nul
 if %errorlevel% neq 0 (
@@ -10,9 +10,9 @@ if %errorlevel% neq 0 (
 )
 
 @ECHO ON
-dotnet restore 1.5/Source/PersonaMechinator.sln
-dotnet build 1.5/Source/PersonaMechinator.sln /p:Configuration=Release
+dotnet restore 1.5/Source/ChildSupremacy.sln
+dotnet build 1.5/Source/ChildSupremacy.sln /p:Configuration=Release
 @ECHO OFF
-ECHO Building PersonaMechinator 1.5 - Complete
+ECHO Building ChildSupremacy 1.5 - Complete
 ECHO Press any key to exit...
 PAUSE > NUL

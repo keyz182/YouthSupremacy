@@ -2,22 +2,22 @@
 using UnityEngine;
 using HarmonyLib;
 
-namespace PersonaMechinator;
+namespace ChildSupremacy;
 
-public class PersonaMechinatorMod : Mod
+public class ChildSupremacyMod : Mod
 {
     public static Settings settings;
 
-    public PersonaMechinatorMod(ModContentPack content) : base(content)
+    public ChildSupremacyMod(ModContentPack content) : base(content)
     {
-        Log.Message("Hello world from PersonaMechinator");
+        Log.Message("Hello world from ChildSupremacy");
 
         // initialize settings
         settings = GetSettings<Settings>();
 #if DEBUG
         Harmony.DEBUG = true;
 #endif
-        Harmony harmony = new Harmony("keyz182.rimworld.PersonaMechinator.main");	
+        Harmony harmony = new Harmony("keyz182.rimworld.ChildSupremacy.main");	
         harmony.PatchAll();
     }
 
@@ -29,6 +29,6 @@ public class PersonaMechinatorMod : Mod
 
     public override string SettingsCategory()
     {
-        return "PersonaMechinator_SettingsCategory".Translate();
+        return "ChildSupremacy_SettingsCategory".Translate();
     }
 }

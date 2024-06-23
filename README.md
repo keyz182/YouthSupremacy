@@ -10,7 +10,7 @@
 
 # Example Steam Workshop Template
 ```
-[h1]PersonaMechinator[/h1]
+[h1]ChildSupremacy[/h1]
 
 A Persona AI core controlled mechinator
 
@@ -23,10 +23,10 @@ Portions of the materials used to create this content/mod are trademarks and/or 
 [*]Marnador for the [url=https://github.com/spdskatr/RWModdingResources/raw/master/RimWordFont.ttf]Rimworld Font[/url][/*]
 [/list]
 
-[url=https://github.com/keyz182/PersonaMechinator][img]https://img.shields.io/static/v1?label=PersonaMechinator&message=Fork%20me%20on%20github&color=d2e885&logo=github[/img][/url]
+[url=https://github.com/keyz182/ChildSupremacy][img]https://img.shields.io/static/v1?label=ChildSupremacy&message=Fork%20me%20on%20github&color=d2e885&logo=github[/img][/url]
 ```
 
-# PersonaMechinator
+# ChildSupremacy
 
 A Persona AI core controlled mechinator
 
